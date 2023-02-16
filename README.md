@@ -1,5 +1,5 @@
 # Brain
-A Personalised Content Streamer
+Fully Open Source Personalized Content Streamer
 
 # TODO
 - [ ] Use [YT Api](https://developers.google.com/youtube/v3) to get videos uploaded by my subscribed channels yesterday.
