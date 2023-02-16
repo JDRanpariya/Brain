@@ -1,3 +1,7 @@
+# custom
+client_secret_youtube.json
+*.db
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
