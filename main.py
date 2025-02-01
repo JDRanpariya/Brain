@@ -1,3 +1,3 @@
-from youtube import youtube
+from sources.youtube.youtube import youtube
 
 youtube()
