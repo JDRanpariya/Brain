@@ -6,5 +6,7 @@
     - Scopus
     - Lens.org
     - Web Of Science Plateform
+    - https://www.frontiersin.org/journals/computational-neuroscience
+    - https://direct.mit.edu/neco
 
 2. What about interesting papers or writing that's already published maybe from early 10th century to 1970's?
