@@ -9,7 +9,7 @@
     - https://www.frontiersin.org/journals/computational-neuroscience
     - https://direct.mit.edu/neco
     - https://link.springer.com/conference/bics
-    - NeurIPS (Neural Information Processing Systems)
+    - NeurIPS, ICML, CVPR, ICLR, AAAI
     - International Conference on Neuromorphic Systems ICONS 
 
 2. What about interesting papers or writing that's already published maybe from early 10th century to 1970's?
