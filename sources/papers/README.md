@@ -12,5 +12,6 @@
         - https://link.springer.com/conference/bics
         - NeurIPS, ICML, CVPR, ICLR, AAAI
         - International Conference on Neuromorphic Systems ICONS
+        - Journal of Mathematical Neuroscience, Nature Machine Intelligence, Theoretical Computer Science
 
 2. What about interesting papers or writing that's already published maybe from early 10th century to 1970's?
