@@ -1,48 +1,57 @@
-# Brain
-Fully Open Source Personalized Content Streamer
+# 🧠 Brain  
+**Fully Open Source Personalized Content Streamer**
 
-# Architecture
+---
 
-┌─────────────────────────────────────────────────────────────────┐
-│                          Presentation                           │
-│  React + TypeScript SPA (Next.js/SvelteKit optional)            │
-│  Obsidian plugin ↔ REST API                                     │
-└─────────────────────────────────────────────────────────────────┘
-                               ↑
-┌─────────────────────────────────────────────────────────────────┐
-│                          Application                            │
-│  FastAPI backend: digest compiler, reading queue, exports, API  │
-│  Business workflows, preference overrides                       │
-└─────────────────────────────────────────────────────────────────┘
-                               ↑
-┌─────────────────────────────────────────────────────────────────┐
-│                          Intelligence                           │
-│  Precomputed embeddings (sentence-transformers)                 │
-│  Recommendation engine: ranking model + fallback rules          │
-│  Reward model (for RLHF) + offline policy training pipeline     │
-│  Connection discovery (batch graph/clustering)                  │
-└─────────────────────────────────────────────────────────────────┘
-                               ↑
-┌─────────────────────────────────────────────────────────────────┐
-│                             Data                                │
-│  PostgreSQL (primary) + JSONB + pgvector                        │
-│  MinIO (object store) for large files, transcript storage       │
-│  Redis (cache, ephemeral state)                                 │
-└─────────────────────────────────────────────────────────────────┘
-                               ↑
-┌─────────────────────────────────────────────────────────────────┐
-│                           Ingestion                             │
-│  Connectors (start hardcoded, evolve to plugin adapters)        │
-│  Async pipeline: fetchers → parser workers → normalization      │
-│  Deduplication, transcript extraction, metadata enrichment      │
-└─────────────────────────────────────────────────────────────────┘
-                               ↑
-┌─────────────────────────────────────────────────────────────────┐
-│                        Infrastructure                           │
-│  Docker Compose (local) → Kubernetes if needed                  │
-│  Redis Streams (task bus), Celery (workers), Celery Beat        │
-│  Secrets manager, logging, Prometheus + Grafana, Sentry         │
-└─────────────────────────────────────────────────────────────────┘
+## 🚀 Minimal MVP Roadmap (4–6 weeks)
+
+### Week 0: Repo + Infra
+- Scaffold monorepo (backend, frontend, connectors)  
+- Docker Compose environment  
+- Postgres + Redis + MinIO  
+
+### Week 1–2: Ingestion + Storage
+- Implement 3 connectors (RSS, YouTube, newsletters via Mailgun webhook or IMAP parsing)  
+- Parse → clean → store core schema + raw content  
+- Add transcript extraction for YouTube/podcasts  
+
+### Week 2–3: Embeddings + Basic UI
+- Hook in embedding model, store vectors in pgvector  
+- Build simple React UI showing daily digest from last 24h  
+- Add Obsidian export endpoint  
+
+### Week 3–4: Feedback & Ranking
+- Add explicit feedback API (save, highlight + reason)  
+- Basic ranking: recency + source weight + embedding similarity  
+
+### Week 4+: Iterate
+- Add Celery tasks  
+- Scheduled digest generation  
+- Analytics dashboard  
+- Begin gathering feedback for Phase 1 ML  
+
+---
+
+## ⚠️ Danger Zones & Mitigations
+
+- **RLHF too early** → wait for high-signal feedback (≥ 500 explicit examples)  
+- **Over-indexing content** → prune old vectors, compress, or store reduced embeddings  
+- **Connector maintenance** → build adapters + monitoring/tests per connector  
+
+---
+
+## ✅ Quick Checklist to Start Coding (Actionable)
+
+- [ ] Initialize repo + Docker Compose (Postgres, Redis, MinIO)  
+- [ ] Define DB schema (users, sources, items, interactions, feedback)  
+- [ ] Implement RSS & YouTube fetchers + HTML → Markdown parser  
+- [ ] Add sentence-transformers embedding job and pgvector integration  
+- [ ] Build FastAPI endpoints for digest and feedback  
+- [ ] Minimal React UI to view digest, mark likes/highlights, export to Obsidian  
+
+---
+
+[Full Architecture Details](./architecture.md)
 
 
 # TODO
@@ -55,6 +64,7 @@ Fully Open Source Personalized Content Streamer
 - [ ] Figure out consumption sources
 
 ### Consumption Sources
+- [ ] Move this to Ingetion Layer
 - [ ] Personal Youtube Subscriptions
 - [ ] Research Papers
   - [ ] arXiv Sanity Preserver to track ML related papers
