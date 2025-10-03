@@ -7,9 +7,23 @@ import googleapiclient.discovery
 import googleapiclient.errors
 from joblib import dump, load
 
+from connectors.base import ConnectorConfig, BaseConnector
+
 scopes = ["https://www.googleapis.com/auth/youtube.readonly"]
 
 con = sqlite3.connect("data.db")
+
+class YouTubeConfig(ConnectorConfig):
+    api_key: str
+    channels: list[str]
+
+
+class YouTubeConnector(BaseConnector):
+    ConfigModel = YouTubeConfig
+
+    def fetch(self):
+        # guaranteed that api_key and channels are present
+        ...
 
 def update_youtube_subscriptions():
     data = get_list_of_subscribed_channels()
@@ -90,4 +104,3 @@ def get_list_of_subscribed_channels():
 
     return data    
 
-update_youtube_subscriptions()
