@@ -4,6 +4,12 @@
 - If that fails we rely on data scraping
     - either scrapy or puppeteer
  
+## TO DO
+- [ ] Implement Youtube
+- [ ] RSS
+- [ ] Spotify Podcast
+- [ ] Arxiv
+ 
 ### Python Design Patterns to follow
 - https://refactoring.guru/design-patterns/python
 - https://python-patterns.guide/
