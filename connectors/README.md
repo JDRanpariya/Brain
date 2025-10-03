@@ -1,5 +1,42 @@
 # Consumption Sources
 
+- We want API first approch 
+- If that fails we rely on data scraping
+    - either scrapy or puppeteer
+### Responsibilities
+
+1.  **Fetching content**
+    -   RSS: poll new items
+    -   YouTube: fetch uploads from subscribed channels
+    -   Newsletters: parse IMAP or webhook events
+    -   Podcasts: fetch RSS + transcripts
+
+2.  **Parsing & Cleaning**
+    -   Convert HTML / PDF / raw text → clean, readable text
+    -   Extract metadata: title, author, date, URL, source
+
+3.  **Deduplication & Normalization**
+    -   Ensure same content from multiple sources isn't duplicated
+    -   Normalize timestamps, categories, and media formats
+
+4.  **Optional Enrichment**
+    -   Generate transcripts for video/audio
+    -   Summarization or embedding pre-processing (later stages)
+
+### Consumption Sources
+- [ ] Move this to Ingetion Layer
+- [ ] Personal Youtube Subscriptions
+- [ ] Research Papers
+  - [ ] arXiv Sanity Preserver to track ML related papers
+  - [ ] Use PubMed Alerts, Google Scholar Alerts, and Semantic Scholar for neuroscience, biology, and anthropology.
+  - [ ] Explore Services like Zotero, Paperpile, and Mendeley can help organize relevant papers.
+  - [ ] AI based Filtering and clustering and abstract summarization.
+    - [ ] AI-assisted Abstract Summarization and Relevance Scoring
+    - [ ] Train an LLM (like GPT) on papers you find interesting to generate scores for relevance.
+    - [ ] Use embeddings (like OpenAI's text-embedding-ada-002) to vectorize abstracts and compare them to abstracts you previously liked.
+  - [ ] Tracking Research Trends Over Time???
+  - [ ] Follow leading researchers on Google Scholar and ResearchGate to track influential publications?? 
+
 ### Youtube Subscriptions
 
 ### Research Papers
