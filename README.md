@@ -1,4 +1,4 @@
-# 🧠 Brain  
+# 🪷 Kosha
 **Fully Open Source Personalized Content Streamer**
 
 ---
