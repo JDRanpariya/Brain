@@ -1,6 +1,50 @@
 # Brain
 Fully Open Source Personalized Content Streamer
 
+# Architecture
+
+┌─────────────────────────────────────────────────────────────────┐
+│                          Presentation                           │
+│  React + TypeScript SPA (Next.js/SvelteKit optional)            │
+│  Obsidian plugin ↔ REST API                                     │
+└─────────────────────────────────────────────────────────────────┘
+                               ↑
+┌─────────────────────────────────────────────────────────────────┐
+│                          Application                            │
+│  FastAPI backend: digest compiler, reading queue, exports, API  │
+│  Business workflows, preference overrides                       │
+└─────────────────────────────────────────────────────────────────┘
+                               ↑
+┌─────────────────────────────────────────────────────────────────┐
+│                          Intelligence                           │
+│  Precomputed embeddings (sentence-transformers)                 │
+│  Recommendation engine: ranking model + fallback rules          │
+│  Reward model (for RLHF) + offline policy training pipeline     │
+│  Connection discovery (batch graph/clustering)                  │
+└─────────────────────────────────────────────────────────────────┘
+                               ↑
+┌─────────────────────────────────────────────────────────────────┐
+│                             Data                                │
+│  PostgreSQL (primary) + JSONB + pgvector                        │
+│  MinIO (object store) for large files, transcript storage       │
+│  Redis (cache, ephemeral state)                                 │
+└─────────────────────────────────────────────────────────────────┘
+                               ↑
+┌─────────────────────────────────────────────────────────────────┐
+│                           Ingestion                             │
+│  Connectors (start hardcoded, evolve to plugin adapters)        │
+│  Async pipeline: fetchers → parser workers → normalization      │
+│  Deduplication, transcript extraction, metadata enrichment      │
+└─────────────────────────────────────────────────────────────────┘
+                               ↑
+┌─────────────────────────────────────────────────────────────────┐
+│                        Infrastructure                           │
+│  Docker Compose (local) → Kubernetes if needed                  │
+│  Redis Streams (task bus), Celery (workers), Celery Beat        │
+│  Secrets manager, logging, Prometheus + Grafana, Sentry         │
+└─────────────────────────────────────────────────────────────────┘
+
+
 # TODO
 - [ ] Use [YT Api](https://developers.google.com/youtube/v3) to get videos uploaded by my subscribed channels yesterday.
   - [X] get list of all channels and store it in db
