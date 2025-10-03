@@ -3,6 +3,17 @@
 - We want API first approch 
 - If that fails we rely on data scraping
     - either scrapy or puppeteer
+ 
+### Python Design Patterns to follow
+- https://refactoring.guru/design-patterns/python
+- https://python-patterns.guide/
+- https://youtu.be/vzTrLpxPF54?si=kDoBgMPa3GqE_Aqv&t=189
+- https://www.youtube.com/watch?v=s_4ZrtQs8Do
+- https://www.youtube.com/watch?v=5OzLrbk82zY
+- https://www.youtube.com/watch?v=UPBOOIRrl40
+- https://www.thedigitalcatbooks.com/pycabook-introduction/
+- https://www.youtube.com/watch?v=wf-BqAjZb8M
+
 ### Responsibilities
 
 1.  **Fetching content**
